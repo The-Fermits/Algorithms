@@ -1,0 +1,66 @@
+
+
+void merge(vi &a, int l,int mid,  int r){
+    vi b(r-l+1);
+
+    int idx =0;
+    int i=l,j=mid+1;
+    while(i<=mid && j<=r){
+        if(a[i]<=a[j]){
+            b[idx]=a[i];
+            idx++;
+            i++;
+        }
+
+        else {
+            b[idx]=a[j];
+            idx++;
+            j++;
+        }
+    }
+
+        while(i<=mid){
+            b[idx]=a[i];
+            idx++;
+            i++;
+        }
+
+        while(j<=r){
+            b[idx]=a[j];
+            idx++;
+            j++;
+        }
+
+        for(int k=l; k<=r; k++){
+            a[k]=b[k-l];
+        }
+    
+
+}
+
+void mergesort(vi &a, int l, int r){
+  int mid = (l+r)/2;
+  if(l>=r) return;
+  mergesort(a,l,mid);
+  mergesort(a,mid+1,r);
+
+  merge(a,l,mid,r);
+
+}
+
+void solve()
+{
+   int n; cin>>n;
+   vi a(n);
+   for(int i=0;i<n;i++){
+   cin>>a[i];
+   }
+
+   mergesort(a,0,n-1);
+
+   for (int i=0; i<n; i++){
+    cout<<a[i]<<" ";
+   }
+    
+
+}
