@@ -5,23 +5,25 @@
 
 int partition(vector<int>& arr, int low, int high) {
   
-  
-    int pivot_val = arr[low];
-  
+  // standard either take high as pivot or randomly choose and swap with high and loop from low to high-1
+    int pivot_val = arr[high];
     int i = low ;
 
    
-    for (int j = low+1; j <= high ; j++) {
+    for (int j = low; j <= high -1 ; j++) {
         if (arr[j] <= pivot_val) {
-            i++;
+           
             swap(arr[i], arr[j]);
+            i++;
             
         }
     }
     
-    swap(arr[i], arr[low]);  
+    swap(arr[i], arr[high]);  
     return i ;
 }
+  
+ 
 
 
 void QuickSort(vi &a, int l, int r){
