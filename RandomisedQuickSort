@@ -44,3 +44,35 @@ void solve()
     
 
 }
+
+
+// Do this for finding kth smallest element using RandomisedQuickSort
+
+
+int RandomisedQuickSort(vi &a, int l, int r, int k){
+  if(l<r){
+    int pivot = partition(a,l,r);
+    if(pivot==k) return a[pivot];
+    else if (pivot>k)return RandomisedQuickSort(a,l,pivot-1,k);
+    // pivot is already sorted 
+    else return RandomisedQuickSort(a,pivot+1,r,k);
+  }
+
+  if(l==r) return a[l];
+}
+
+void solve()
+{
+   int n; cin>>n;
+   int k; cin>>k;
+   k--;
+   vi a(n);
+   for(int i=0;i<n;i++){
+   cin>>a[i];
+   }
+
+   int ans = RandomisedQuickSort(a,0,n-1,k);
+   cout<<ans<<endl;
+    
+
+}
