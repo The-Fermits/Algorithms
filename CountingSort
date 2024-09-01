@@ -1,4 +1,7 @@
+// Time - O(n+K) , K= max(a[i])
+// Space - O(K+n)
 
+// Feature : Stable Sorting 
 void CountingSort (vi &a, int n){
  int mx =0LL;
  for (int i=0; i<n; i++){
