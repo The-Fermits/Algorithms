@@ -49,6 +49,9 @@ void solve()
 // Do this for finding kth smallest element using RandomisedQuickSort
 
 
+Note : Time complexity of orderes statics is O(n)
+
+
 int RandomisedQuickSort(vi &a, int l, int r, int k){
   if(l<r){
     int pivot = partition(a,l,r);
