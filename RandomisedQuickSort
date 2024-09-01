@@ -1,0 +1,46 @@
+int partition(vector<int>& a, int low, int hi) {
+  
+  int idx = rand()%(hi-low+1);
+  int pi = low+idx;
+  int pv = a[pi];
+  swap(a[pi],a[hi]);
+  int i= low;
+
+  for(int j= low ; j<=hi-1; j++ ){
+    if(a[j]<=pv){
+        swap(a[i],a[j]);
+        i++;
+    }
+  }
+  // pivot is shifted to hi now 
+  swap(a[i],a[hi]);
+  return i;
+    
+}
+
+
+void RandomisedQuickSort(vi &a, int l, int r){
+  if(l<r){
+    int pivot = partition(a,l,r);
+    RandomisedQuickSort(a,l,pivot-1);
+    // pivot is already sorted 
+    RandomisedQuickSort(a,pivot+1,r);
+  }
+}
+
+void solve()
+{
+   int n; cin>>n;
+   vi a(n);
+   for(int i=0;i<n;i++){
+   cin>>a[i];
+   }
+
+   RandomisedQuickSort(a,0,n-1);
+
+   for (int i=0; i<n; i++){
+    cout<<a[i]<<" ";
+   }
+    
+
+}
