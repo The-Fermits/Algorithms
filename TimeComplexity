@@ -1,0 +1,5 @@
+Alglo          Best          Average        worst
+Insertion      n             n^2            n^2
+Merge          nlogn         nlogn          nlogn
+Quick          nlogn         nlogn          n^2   (randomised)
+Heapsort       nlogn         nlogn          nlogn
