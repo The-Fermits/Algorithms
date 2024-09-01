@@ -1,4 +1,8 @@
 
+// worst case is O(n2) best is O(nlogn) when partion split in 2 equal array like merge sort 
+// T(n)= T(length of partition 1)+ T(length of partition 2) + O(n) 
+// All partition takes O(n) 
+
 int partition(vector<int>& arr, int low, int high) {
   
   
